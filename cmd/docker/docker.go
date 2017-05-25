@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	
 	"strings"
 	"time"
 
@@ -166,6 +167,7 @@ func main() {
 	timestamp := time.Now().Unix()
 	tm := time.Unix(timestamp, 0)
 	fmt.Println("docker_01 time is ", tm.Format("2006-01-02 03:04:05:55 PM"))
+	logrus.Infof("docker_01 time is ", tm.Format("2006-01-02 03:04:05:55 PM"))
 	//matt's modification --end
 
 	stdin, stdout, stderr := term.StdStreams()
@@ -190,9 +192,10 @@ func main() {
 		os.Exit(1)
 	}
 	//matt's modification --start
-	timestamp := time.Now().Unix()
-	tm := time.Unix(timestamp, 0)
+	timestamp = time.Now().Unix()
+	tm = time.Unix(timestamp, 0)
 	fmt.Println("docker_02 time is ", tm.Format("2006-01-02 03:04:05:55 PM"))
+	logrus.Infof("docker_02 time is ", tm.Format("2006-01-02 03:04:05:55 PM"))
 	//matt's modification --end
 }
 

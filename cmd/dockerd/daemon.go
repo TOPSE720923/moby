@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
+	
 	"io"
 	"os"
 	"path/filepath"
@@ -118,6 +119,7 @@ func (cli *DaemonCli) start(opts daemonOptions) (err error) {
 	timestamp := time.Now().Unix()
 	tm := time.Unix(timestamp, 0)
 	fmt.Println("docker_05 time is ", tm.Format("2006-01-02 03:04:05:55 PM"))
+	logrus.Infof("docker_05 time is ", tm.Format("2006-01-02 03:04:05:55 PM"))
 	//matt's modification --end
 
 	stopc := make(chan bool)
@@ -347,9 +349,10 @@ func (cli *DaemonCli) start(opts daemonOptions) (err error) {
 	}
 
 	//matt's modification --start
-	timestamp := time.Now().Unix()
-	tm := time.Unix(timestamp, 0)
+	timestamp = time.Now().Unix()
+	tm = time.Unix(timestamp, 0)
 	fmt.Println("docker_06 time is ", tm.Format("2006-01-02 03:04:05:55 PM"))
+	logrus.Infof("docker_06 time is ", tm.Format("2006-01-02 03:04:05:55 PM"))
 	//matt's modification --end
 
 	return nil
